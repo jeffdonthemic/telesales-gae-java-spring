@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="accountCreateController" class="com.jeffdouglas.controller.AccountCreateController">
+ 		<property name="formView"><value>accountCreate</value></property>
+		<property name="successView"><value>redirect:/accountDisplay.htm</value></property>	
+		<property name="commandClass"><value>com.jeffdouglas.model.Account</value></property> 
+		<property name="validator"><bean class="com.jeffdouglas.validator.AccountValidator"/></property>	
+	</bean>
+	
+	<bean id="accountDisplayController" class="com.jeffdouglas.controller.AccountDisplayController"/>
+	
+	<bean id="accountLookupController" class="com.jeffdouglas.controller.AccountLookupController">
+	 	<property name="formView"><value>accountLookup</value></property>
+		<property name="successView"><value>/accountLookup.htm</value></property>
+		<property name="commandClass"><value>com.jeffdouglas.model.Account</value></property>		
+	</bean>
+	
+	<bean id="opportunityCreateController" class="com.jeffdouglas.controller.OpportunityCreateController">
+	 	<property name="formView"><value>opportunityCreate</value></property>
+		<property name="successView"><value>redirect:/accountDisplay.htm</value></property>	
+		<property name="commandClass"><value>com.jeffdouglas.model.Opportunity</value></property> 	
+		<property name="validator"><bean class="com.jeffdouglas.validator.OpportunityValidator"/></property>		
+	</bean>
+	   
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+            	<prop key="/accountCreate.htm">accountCreateController</prop>
+            	<prop key="/accountDisplay.htm">accountDisplayController</prop>
+            	<prop key="/accountLookup.htm">accountLookupController</prop>
+            	<prop key="/opportunityCreate.htm">opportunityCreateController</prop>
+            </props>
+        </property>
+    </bean>
+    
+     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"><value>org.springframework.web.servlet.view.JstlView</value></property>
+        <property name="prefix"><value>/jsp/</value></property>
+        <property name="suffix"><value>.jsp</value></property>
+    </bean>   
+      
+</beans>

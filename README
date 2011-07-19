@@ -1,0 +1,16 @@
+Force.com Demo App on Google App Engine (Java)
+
+This is my demo app using salesforce.com and Java on App Engine with Spring. The app that connects to a Developer Org and provides the following functionality:
+
+Create a new Account
+Search for Accounts by keyword
+View an Account and all Opportunities for the Account
+Create a new Opportunity for an Account
+
+See http://blog.jeffdouglas.com/2009/04/30/google-app-engine-for-java-demo-app/ for more detailed info on this app.
+ 
+Jeff Douglas
+Appirio
+
+http://blog.jeffdouglas.com
+http://www.cloudspokes.com
